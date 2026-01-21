@@ -56,10 +56,12 @@ public abstract class AbstractSaleRequest<Request, Response> {
 		request.addHeader("Accept", "application/json");
 		request.addHeader("Accept-Encoding", "gzip");
 		request.addHeader("Content-Type", "application/json");
-		request.addHeader("User-Agent", "CieloEcommerce/3.0 Android SDK");
+		request.addHeader("Connection", "keep-alive");
+    request.addHeader("User-Agent", "CieloEcommerce/3.0 SDK");
+		// request.addHeader("User-Agent", "PostmanRuntime/7.51.0");
 		request.addHeader("MerchantId", merchant.getId());
 		request.addHeader("MerchantKey", merchant.getKey());
-		request.addHeader("RequestId", UUID.randomUUID().toString());
+		// request.addHeader("RequestId", UUID.randomUUID().toString());
 
 		return httpClient.execute(request);
 	}

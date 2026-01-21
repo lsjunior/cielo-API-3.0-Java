@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 
 import com.google.gson.GsonBuilder;
@@ -22,7 +23,7 @@ public class CreateCartTokenRequest extends AbstractSaleRequest<CardToken, CardT
 		String url = environment.getApiUrl() + "1/card/";
 		HttpPost request = new HttpPost(url);
 
-		request.setEntity(new StringEntity(new GsonBuilder().create().toJson(param)));
+		request.setEntity(new StringEntity(new GsonBuilder().create().toJson(param), ContentType.APPLICATION_JSON));
 
 		HttpResponse response = sendRequest(request);
 

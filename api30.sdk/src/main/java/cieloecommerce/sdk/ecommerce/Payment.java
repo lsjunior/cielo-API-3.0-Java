@@ -88,6 +88,32 @@ public class Payment {
 	@SerializedName("VoidedDate")
 	private String voidedDate;
 	
+	// Campos específicos para PIX
+	@SerializedName("QrCodeBase64Image")
+	private String qrCodeBase64Image;
+	@SerializedName("QrCodeString")
+	private String qrCodeString;
+  @SerializedName("QrCode")
+	private QrCode qrCode;
+	
+	// Campos adicionais para Boleto - Multa
+	@SerializedName("NullifyDays")
+	private Integer nullifyDays;
+	@SerializedName("DaysToFine")
+	private Integer daysToFine;
+	@SerializedName("FineRate")
+	private Integer fineRate;
+	@SerializedName("FineAmount")
+	private Integer fineAmount;
+	
+	// Campos adicionais para Boleto - Juros
+	@SerializedName("DaysToInterest")
+	private Integer daysToInterest;
+	@SerializedName("InterestRate")
+	private Integer interestRate;
+	@SerializedName("InterestAmount")
+	private Integer interestAmount;
+	
 
 	public Payment(Integer amount, Integer installments) {
 		setAmount(amount);
@@ -350,6 +376,11 @@ public class Payment {
 	public String getAddress() {
 		return address;
 	}
+	
+	public Payment setAddress(String address) {
+		this.address = address;
+		return this;
+	}
 
 	public boolean isAuthenticate() {
 		return authenticate;
@@ -416,6 +447,20 @@ public class Payment {
 	public String getExpirationDate() {
 		return expirationDate;
 	}
+	
+	public Payment setExpirationDate(String expirationDate) {
+		this.expirationDate = expirationDate;
+		return this;
+	}
+	
+	public String getAssignor() {
+		return assignor;
+	}
+	
+	public Payment setAssignor(String assignor) {
+		this.assignor = assignor;
+		return this;
+	}
 
 	public Object[] getExtraDataCollection() {
 		return extraDataCollection;
@@ -439,14 +484,107 @@ public class Payment {
 	
 	public String getVoidedDate() {
 		return voidedDate;
+	}
+	
+	// Getters para PIX
+	public String getQrCodeBase64Image() {
+		return qrCodeBase64Image;
+	}
+  
+  public Payment setQrCodeBase64Image(String qrCodeBase64Image) {
+    this.qrCodeBase64Image = qrCodeBase64Image;
+    return this;
+  }
+	
+	public String getQrCodeString() {
+		return qrCodeString;
+	}
+  
+  public Payment setQrCodeString(String qrCodeString) {
+    this.qrCodeString = qrCodeString;
+    return this;
+  }
+  
+  public QrCode getQrCode() {
+    return qrCode;
+  }
+  
+  public Payment setQrCode(QrCode qrCode) {
+    this.qrCode = qrCode;
+    return this;
+  }
+	
+	// Getters e Setters para Boleto - Multa
+	public Integer getNullifyDays() {
+		return nullifyDays;
+	}
+	
+	public Payment setNullifyDays(Integer nullifyDays) {
+		this.nullifyDays = nullifyDays;
+		return this;
+	}
+	
+	public Integer getDaysToFine() {
+		return daysToFine;
+	}
+	
+	public Payment setDaysToFine(Integer daysToFine) {
+		this.daysToFine = daysToFine;
+		return this;
+	}
+	
+	public Integer getFineRate() {
+		return fineRate;
+	}
+	
+	public Payment setFineRate(Integer fineRate) {
+		this.fineRate = fineRate;
+		return this;
+	}
+	
+	public Integer getFineAmount() {
+		return fineAmount;
+	}
+	
+	public Payment setFineAmount(Integer fineAmount) {
+		this.fineAmount = fineAmount;
+		return this;
+	}
+	
+	// Getters e Setters para Boleto - Juros
+	public Integer getDaysToInterest() {
+		return daysToInterest;
+	}
+	
+	public Payment setDaysToInterest(Integer daysToInterest) {
+		this.daysToInterest = daysToInterest;
+		return this;
+	}
+	
+	public Integer getInterestRate() {
+		return interestRate;
+	}
+	
+	public Payment setInterestRate(Integer interestRate) {
+		this.interestRate = interestRate;
+		return this;
+	}
+	
+	public Integer getInterestAmount() {
+		return interestAmount;
+	}
+	
+	public Payment setInterestAmount(Integer interestAmount) {
+		this.interestAmount = interestAmount;
+		return this;
 	}	
 
 	public enum Provider {
-		Bradesco, BancoDoBrasil, Simulado
+		Bradesco, Bradesco2, BancoDoBrasil, BancoDoBrasil2, BancoDoBrasil3, Simulado, Cielo2, Cielo30
 	}
 
 	public enum Type {
-		CreditCard, DebitCard, ElectronicTransfer, Boleto
+		CreditCard, DebitCard, ElectronicTransfer, Boleto, Pix
 	}
 
 	public enum Currency {
