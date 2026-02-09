@@ -17,25 +17,25 @@
     <java.version>8</java.version>
   </properties>
 
-	<scm>
-		<url>https://github.com/lsjunior/cielo-API-3.0-Java</url>
-		<connection>scm:git:https://github.com/lsjunior/cielo-API-3.0-Java.git</connection>
-		<developerConnection>scm:git:https://github.com/lsjunior/cielo-API-3.0-Java.git</developerConnection>
-		<tag>HEAD</tag>
-	</scm>
+  <scm>
+    <url>https://github.com/lsjunior/cielo-API-3.0-Java</url>
+    <connection>scm:git:https://github.com/lsjunior/cielo-API-3.0-Java.git</connection>
+    <developerConnection>scm:git:https://github.com/lsjunior/cielo-API-3.0-Java.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
 
-	<distributionManagement>
-		<repository>
-			<id>lidersis-releases</id>
-			<name>Lidersis Releases</name>
-			<url>https://https://maven.lidersis.com.br/repository/maven-releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>lidersis-snapshots</id>
-			<name>Lidersis Snapshots</name>
-			<url>https://https://maven.lidersis.com.br/repository/maven-snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>lidersis-releases</id>
+      <name>Lidersis Releases</name>
+      <url>https://https://maven.lidersis.com.br/repository/maven-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>lidersis-snapshots</id>
+      <name>Lidersis Snapshots</name>
+      <url>https://https://maven.lidersis.com.br/repository/maven-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <build>
     <plugins>
@@ -65,10 +65,29 @@
           </compilerArgs>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.6.3</version>
+        <configuration>
+          <skip>true</skip>
+          <doclint>none</doclint>
+          <failOnError>false</failOnError>
+        </configuration>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+
     </plugins>
   </build>
-
-
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
