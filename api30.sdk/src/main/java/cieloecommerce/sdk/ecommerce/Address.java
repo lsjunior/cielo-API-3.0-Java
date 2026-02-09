@@ -37,6 +37,12 @@ public class Address {
 	private String city;
 
 	/**
+	 * {@link Address#getCity()}
+	 */
+	@SerializedName("District")
+	private String district;
+
+	/**
 	 * {@link Address#getState()}
 	 */
 	@SerializedName("State")
@@ -61,6 +67,19 @@ public class Address {
 	public Address setCity(String city) {
 		this.city = city;
 		return this;
+	}
+
+	/**
+	 * @return the district of customer's address
+	 */public String getDistrict() {
+		return district;
+	}
+
+	/**
+	 * {@link Address#getDistrict()}
+	 */
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 
 	/**
