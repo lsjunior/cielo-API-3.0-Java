@@ -28,12 +28,12 @@
     <repository>
       <id>lidersis-releases</id>
       <name>Lidersis Releases</name>
-      <url>https://https://maven.lidersis.com.br/repository/maven-releases</url>
+      <url>https://maven.lidersis.com.br/repository/maven-releases</url>
     </repository>
     <snapshotRepository>
       <id>lidersis-snapshots</id>
       <name>Lidersis Snapshots</name>
-      <url>https://https://maven.lidersis.com.br/repository/maven-snapshots</url>
+      <url>https://maven.lidersis.com.br/repository/maven-snapshots</url>
     </snapshotRepository>
   </distributionManagement>
 
